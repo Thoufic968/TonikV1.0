@@ -1,0 +1,107 @@
+image: maven:3.6.3-jdk-11
+
+before_script:
+  ################################################################################################
+  # Install Xvfb (X virtual framebuffer) packages.                                               #
+  # Xvfb (X virtual framebuffer) is an in-memory display server for a UNIX-like operating system #
+  # It implements the X11 display server protocol without any display.                           #
+  ################################################################################################
+  - apt-get update
+  - apt-get -y install gnupg
+  - apt-get install -y unzip xvfb libxi6 libgconf-2-4
+
+  ##########################
+  # Install Java on system #
+  ##########################
+  - apt-get install -y default-jdk
+
+  ##################################################
+  # Install Latest Google chrome package on system #
+  ##################################################
+  - curl -sS -o - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add
+  - echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list
+  - apt-get -y update
+  - apt-get -y install google-chrome-stable
+
+stages:
+  - test
+
+Paramount_101_2GSM:
+  stage: test
+  script:
+    - xvfb-run --auto-servernum --server-args="-screen 0, 1440x900x24 -screen 1, 1440x900x24" mvn test -Dsurefire.suiteXmlFiles=TMOWeb_2GSM.xml -DtestName=Test1
+  artifacts:
+    when: always
+    paths:
+      - Reports/*
+    expire_in: 1 week
+
+Paramount_102_2GSM:
+  stage: test
+  script:
+    - xvfb-run --auto-servernum --server-args="-screen 0, 1440x900x24 -screen 1, 1440x900x24" mvn test -Dsurefire.suiteXmlFiles=TMOWeb_2GSM.xml -DtestName=Test2
+  artifacts:
+    when: always
+    paths:
+      - Reports/*
+    expire_in: 1 week
+
+Paramount_103_2GSM:
+  stage: test
+  script:
+    - xvfb-run --auto-servernum --server-args="-screen 0, 1440x900x24 -screen 1, 1440x900x24" mvn test -Dsurefire.suiteXmlFiles=TMOWeb_2GSM.xml -DtestName=Test3
+  artifacts:
+    when: always
+    paths:
+      - Reports/*
+    expire_in: 1 week
+
+Paramount_104_2GSM:
+  stage: test
+  script:
+    - xvfb-run --auto-servernum --server-args="-screen 0, 1440x900x24 -screen 1, 1440x900x24" mvn test -Dsurefire.suiteXmlFiles=TMOWeb_2GSM.xml -DtestName=Test4
+  artifacts:
+    when: always
+    paths:
+      - Reports/*
+    expire_in: 1 week
+
+Paramount_105_2GSM:
+  stage: test
+  script:
+    - xvfb-run --auto-servernum --server-args="-screen 0, 1440x900x24 -screen 1, 1440x900x24" mvn test -Dsurefire.suiteXmlFiles=TMOWeb_2GSM.xml -DtestName=Test5
+  artifacts:
+    when: always
+    paths:
+      - Reports/*
+    expire_in: 1 week
+
+Paramount_106_2GSM:
+  stage: test
+  script:
+    - xvfb-run --auto-servernum --server-args="-screen 0, 1440x900x24 -screen 1, 1440x900x24" mvn test -Dsurefire.suiteXmlFiles=TMOWeb_2GSM.xml -DtestName=Test6
+  artifacts:
+    when: always
+    paths:
+      - Reports/*
+    expire_in: 1 week
+
+Paramount_107_2GSM:
+  stage: test
+  script:
+    - xvfb-run --auto-servernum --server-args="-screen 0, 1440x900x24 -screen 1, 1440x900x24" mvn test -Dsurefire.suiteXmlFiles=TMOWeb_2GSM.xml -DtestName=Test7
+  artifacts:
+    when: always
+    paths:
+      - Reports/*
+    expire_in: 1 week
+
+Paramount_108_2GSM:
+  stage: test
+  script:
+    - xvfb-run --auto-servernum --server-args="-screen 0, 1440x900x24 -screen 1, 1440x900x24" mvn test -Dsurefire.suiteXmlFiles=TMOWeb_2GSM.xml -DtestName=Test8
+  artifacts:
+    when: always
+    paths:
+      - Reports/*
+    expire_in: 1 week

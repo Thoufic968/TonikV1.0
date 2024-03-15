@@ -1,0 +1,18 @@
+/bin/
+/Libs/
+.settings
+/Reports/
+debug.log
+settings*
+console.properties
+appium.log
+/test-output/
+*/target/
+target/
+
+# Eclipse Core
+.project
+.classpath
+.idea
+
+Framework.iml
